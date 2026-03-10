@@ -1,0 +1,48 @@
+@charset "utf-8";
+@font-face {
+	font-family: 'S-CoreDream-3Light';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+    font-family: 'ChosunSg';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunSg.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* -----------------------------------------------
+	* 이모티콘 관리 관련 스타일
+--------------------------------------------------
+	- 최초 작성일 :2022.12.17
+	- 최초 작성자 :아보카도
+	- 최종 수정일 :
+	- 최종 수정자 :
+--------------------------------------------------*/
+
+#main_body {text-align:left;}
+#main_body .theme-box {margin: 30px;}
+
+.txt-info {font-size:13px; font-family: 'ChosunGu'; }
+.txt-ti {display: inline-block; position: relative;
+	font-size: 15px; font-family: 'S-CoreDream-3Light'; 
+	color: #fff;
+	background: linear-gradient(to right,rgb(0, 0, 0), transparent);
+	background-repeat: no-repeat;
+	background-position: 0% 70%;}
+.txt-list {max-width:650px; vertical-align: middle; margin-left:auto; margin-right:auto; padding-top:30px; }
+.list-1 {margin-bottom: 30px; }
+.list-1-last {margin-bottom: 0px; }
+.list-2 { display:block; box-sizing: border-box;
+	margin: 10px 0;
+	padding: 10px;
+	background-color: rgba(255,255,255,0.8); color:#000;
+	border: 1px solid rgba(255,255,255,0.8);
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+	backdrop-filter: blur(5px); }
+
+
+  /*주석*/
+.pre {color: rgba(0, 0, 0, 0.6); font-size: 12px;}
+
+
