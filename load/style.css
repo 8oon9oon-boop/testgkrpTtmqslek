@@ -1,5 +1,4 @@
 @charset "utf-8";
-/* SIR 지운아빠 */
 
 
 .error				{ position:relative; text-align: center; line-height: 1.8em; padding-top: 70px; }
@@ -347,3 +346,61 @@ body {
 #log_list {
     padding-bottom: 150px; 
 }
+
+/* =======================================================
+   새로 추가된 메신저형 UI 스타일 (최하단 추가)
+   ======================================================= */
+body { background-color: #f9f9f9 !important; }
+
+/* 기존 글쓰기, 새로고침 등 불필요한 버튼 숨김 */
+.ui-mmb-button { display: none !important; }
+#navi_category { display: none !important; }
+.searc-sub-box { display: none !important; }
+.ui-paging { display: none !important; }
+.board-notice { display: none !important; }
+
+/* 1. 상단 고정 헤더 */
+.messenger-header {
+    position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 20px; background-color: #fff; border-bottom: 1px solid #eaeaea; font-size: 15px;
+}
+.messenger-header a { text-decoration: none; color: #666; font-weight: bold; }
+.messenger-header .room-info { font-weight: bold; font-size: 16px; color: #000; }
+.messenger-header .room-info .count { color: #aaa; font-weight: normal; font-size: 14px; margin-left: 3px; }
+
+/* 2. 날짜 및 시스템 알림 */
+.system-notice { text-align: center; margin: 20px 0 10px; }
+.system-notice span { display: inline-block; background-color: #e5e5e5; color: #555; padding: 6px 15px; font-size: 13px; }
+.enter-notice { text-align: center; color: #888; font-size: 14px; margin-bottom: 30px; }
+
+/* 3. 대화(로그) 디자인 */
+#log_list { padding: 10px 20px 150px; } /* 하단 폼에 가리지 않게 여백 확보 */
+.message-group { display: flex; gap: 12px; margin-bottom: 20px; }
+.avatar { width: 45px; height: 45px; background-color: #e0e0e0; flex-shrink: 0; border-radius: 50%; }
+.message-content { flex: 1; }
+.message-row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 5px; }
+.author { color: #17a2b8; font-weight: bold; font-size: 15px; }
+.text { color: #333; font-size: 15px; }
+.time { color: #b08bb6; font-weight: normal; font-size: 12px; }
+.actions { font-size: 12px; }
+.actions a { color: #ccc; text-decoration: none; margin-left: 3px; }
+.actions a:hover { color: #666; }
+.image-box { margin-top: 5px; display: inline-block; }
+.image-box img { max-width: 250px; border-radius: 10px; border: 1px solid #eee; }
+
+/* 4. 답글(코멘트) 디자인 */
+.reply-wrapper { display: flex; gap: 10px; margin-top: 5px; }
+.reply-icon { color: #f39c12; font-weight: bold; }
+.reply-avatar { width: 30px; height: 30px; background-color: #e0e0e0; flex-shrink: 0; border-radius: 50%; }
+
+/* 5. 하단 고정 글쓰기 폼 */
+.messenger-footer {
+    position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1000;
+    background-color: #fff; border-top-left-radius: 20px; border-top-right-radius: 20px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.05); padding: 20px 30px calc(20px + env(safe-area-inset-bottom));
+}
+.messenger-footer .input-toolbar { display: flex; justify-content: space-between; margin-bottom: 15px; }
+.messenger-footer .toolbar-left, .messenger-footer .toolbar-right { display: flex; gap: 20px; }
+.messenger-footer .input-toolbar span { font-size: 15px; font-weight: bold; color: #000; cursor: pointer; }
+.messenger-footer .input-area textarea { width: 100%; border: none; background: transparent; font-size: 15px; outline: none; resize: none; height: 25px; }
+.messenger-footer .input-area textarea::placeholder { color: #000; }
