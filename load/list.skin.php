@@ -34,7 +34,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         ?>
     </main>
 
-    <?php if ($write_href && $board['bo_use_chick']) { 
+<?php if ($write_href) { 
         $action_url = G5_BBS_URL."/write_update.php";
         include($board_skin_path.'/write.skin.php');
     } ?>
