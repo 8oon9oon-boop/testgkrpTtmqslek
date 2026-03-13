@@ -134,41 +134,28 @@ if($is_viewer) {
 		<div class="ui-pic <?=$no_member_class?>" data-width="<?=$data_width?>" data-image="<?=$image_width?>" >
 
 			<!-- 로그 상단 영역 -->
-			<div class="pic-header">
-				<p class="no">
-					
-					<? // 로그 넘버링 출력 ?>
-					No. <?=($list_item['wr_num'] * -1)?>
+<div class="pic-header">
+    <p class="no">
+        <span class="avatar" style="display:inline-block; width:30px; height:30px; border-radius:50%; background:#e0e0e0; vertical-align:middle; margin-right:5px; overflow:hidden;">
+            </span>
+        No. <?=($list_item['wr_num'] * -1)?>
+        <? if($list_item['ca_name']){ ?>
+        <span data-category="<?=$list_item['ca_name']?>" class="ico-category"><?=$list_item['ca_name']?></span>
+        <? } ?>
+    </p>
 
-					<? if($list_item['ca_name']){ 
-						// 카테고리 출력
-					?>
-					<span data-category="<?=$list_item['ca_name']?>" class="ico-category">
-						<?=$list_item['ca_name']?>
-					</span>
-					<? } ?>
-					<? if($list_item['wr_adult']) {
-						// 19금 필터링 마크
-					?>
-					<span style="color:#d3393d;">■</span>
-					<? } ?>
-				</p>
-					<?if(strstr($list_item['wr_option'],"secret")){?>
-					&nbsp;&nbsp;<span class="co-secret highlight">#secret</span>
-					<?}else if ($list_item['wr_protect']!=''){?>
-					&nbsp;&nbsp;<span class="co-secret highlight">#protect</span>
-					<?}else if($list_item['wr_secret'] == '1' ){?>
-					&nbsp;&nbsp;<span class="co-member highlight">#member only</span>
-					<?}//@200602 ?>
+    <? if($is_viewer) { 
+        // 보기 권한이 존재 할 경우 (멤버의 경우)
+        // 🟢 좋아요 버튼 추가 
+        if ($board['bo_use_good']) { ?>
+            <a href="#" onclick="excute_good('<?php echo G5_BBS_URL ?>/good.php?bo_table=<?php echo $bo_table ?>&amp;wr_id=<?php echo $list_item['wr_id'] ?>&amp;good=good', $(this), $('#good_cnt_<?php echo $list_item['wr_id'] ?>')); return false;" style="float:right; margin-left:10px; color:#e74c3c; font-weight:bold; text-decoration:none;">❤️ <span id="good_cnt_<?php echo $list_item['wr_id'] ?>"><?php echo $list_item['wr_good'] ?></span></a>
+        <? } ?>
 
-				<? if($is_viewer) { 
-					// 보기 권한이 존재 할 경우 (멤버의 경우)
-					// -- 버튼 영역 출력
-					if ($delete_href)		{ ?><a href="<?php echo $delete_href ?>" class="del" onclick="del(this.href); return false;">삭제</a><?	} ?>
-												<!--<a href="?bo_table=<?=$bo_table?>&log=<?=$list_item['wr_num'] * -1?>&single=Y" target="_blank" class="new">로그링크</a> -->
-					<? if ($update_href)	{ ?><a href="<?php echo $update_href ?>" class="mod">수정</a><? } ?>
-				<? } ?>
-			</div>
+        // 기존 삭제, 수정 버튼 유지
+        <? if ($delete_href) { ?><a href="<?php echo $delete_href ?>" class="del" onclick="del(this.href); return false;">삭제</a><? } ?>
+        <? if ($update_href) { ?><a href="<?php echo $update_href ?>" class="mod">수정</a><? } ?>
+    <? } ?>
+</div>
 			<!-- // 로그 상단 영역 -->
 
 			<!-- 로그 이미지 -->

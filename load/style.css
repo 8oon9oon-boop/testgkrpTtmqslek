@@ -263,3 +263,87 @@
 
 .guest-box				{ position: relative; text-align:left; } 
 .guest-box input[type="text"],.guest-box input[type="password"] {max-width:40%;}
+
+/* =======================================================
+   새로 추가된 메신저형 UI 스타일 (기존 코드 하단에 붙여넣기)
+   ======================================================= */
+
+/* 1. 채팅 배경 이미지 (원하는 배경 이미지 경로로 수정하세요) */
+body {
+    background-image: url('./img/chat_bg.jpg'); /* load/img/ 폴더 안에 chat_bg.jpg 업로드 필요 */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* 스크롤 고정 */
+    background-color: #f2f2f2;
+}
+
+/* 2. 상단 고정 헤더 */
+.messenger-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #eaeaea;
+    font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.messenger-header a { text-decoration: none; color: #333; }
+.messenger-header .room-info { font-weight: bold; font-size: 16px; }
+.messenger-header .room-info .count { color: #999; font-weight: normal; font-size: 13px; }
+
+/* 3. 시스템 날짜 알림 */
+.system-notice { text-align: center; margin: 20px 0; }
+.system-notice span {
+    display: inline-block;
+    background-color: rgba(0,0,0,0.2);
+    color: #fff;
+    padding: 6px 15px;
+    font-size: 12px;
+    border-radius: 20px;
+}
+
+/* 4. 하단 고정 글쓰기 폼 */
+.messenger-footer {
+    position: fixed; /* 화면 하단에 무조건 고정 */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    border-top-left-radius: 20px; /* 둥근 폼 */
+    border-top-right-radius: 20px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.08);
+    padding: 15px 20px;
+    padding-bottom: calc(15px + env(safe-area-inset-bottom));
+}
+
+.messenger-footer .input-toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.messenger-footer .toolbar-left, .messenger-footer .toolbar-right { display: flex; gap: 15px; }
+.messenger-footer .input-toolbar span {
+    font-size: 15px; font-weight: bold; color: #333; cursor: pointer; transition: opacity 0.2s;
+}
+.messenger-footer .input-toolbar span:hover { opacity: 0.6; }
+.messenger-footer .toolbar-right span:first-child { color: #17a2b8; /* 등록 버튼 색상 */ }
+
+.messenger-footer .input-area textarea {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    outline: none;
+    resize: none;
+    height: 50px;
+}
+
+/* 폼 높이만큼 리스트에 여백 주어 가려지지 않게 함 */
+#log_list {
+    padding-bottom: 150px; 
+}
