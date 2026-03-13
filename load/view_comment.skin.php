@@ -10,14 +10,20 @@ for ($index=0; $index<count($comment); $index++) {
     <span class="reply-icon">ㄴ</span>
     <div>
         <div class="message-row">
-            <span class="author" style="color:#f39c12;"><?=$log_comment['name']?></span>
-            <span class="text"><?=$content?></span>
-            <span class="time">(<?=date('m-d H:i', strtotime($log_comment['wr_datetime']))?>)</span>
-            <span class="actions">
-                <? if ($log_comment['is_edit']) { ?><a href="#">수정</a><? } ?>
-                <? if ($log_comment['is_del'])  { ?><a href="<?=$log_comment['del_link']?>" onclick="return comment_delete();">삭제</a><? } ?>
-            </span>
-        </div>
+    <span class="author" style="color:#f39c12;"><?php echo $log_comment['name'] ?></span>
+    <span class="text"><?php echo $content ?></span>
+    <span class="time">(<?php echo date('m-d H:i', strtotime($log_comment['wr_datetime'])) ?>)</span>
+    <span class="actions">
+        <a href="#" onclick="comment_box('<?php echo $list_item['wr_id'] ?>', '<?php echo $comment_id ?>', 'c'); return false;">답글</a>
+        <?php if ($log_comment['is_edit']) { ?>
+            <a href="#" onclick="comment_box('<?php echo $list_item['wr_id'] ?>', '<?php echo $comment_id ?>', 'cu'); return false;">수정</a>
+        <?php } ?>
+        <?php if ($log_comment['is_del']) { ?>
+            <a href="<?php echo $log_comment['del_link']; ?>" onclick="return comment_delete();">삭제</a>
+        <?php } ?>
+    </span>
+</div>
+<div id="edit_<?php echo $comment_id ?>"></div>
     </div>
 </div>
 <? } ?>

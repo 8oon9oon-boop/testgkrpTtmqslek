@@ -68,3 +68,13 @@ body {
     height: 30px !important; color: #000 !important; 
 }
 .input-area textarea::placeholder { color: #000 !important; opacity: 1; }
+
+/* 옵션 선택 시 강조 스타일 */
+.input-toolbar span { transition: all 0.2s; }
+.input-toolbar span:active { transform: scale(0.9); }
+
+/* 하단 푸터 폼 내 textarea 높이 조절 */
+.messenger-footer .input-area textarea {
+    height: 60px !important; /* 글 수정 시 내용을 보기 편하도록 약간 높임 */
+    padding: 5px 0;
+}

@@ -23,10 +23,19 @@ if($list_item['wr_type'] == 'UPLOAD') {
             <span class="text"><?=strip_tags(conv_content($list_item['wr_text'], 0))?></span>
             <span class="time">(<?=date('m-d H:i', strtotime($list_item['wr_datetime']))?>)</span>
             <span class="actions">
-                <a href="#" onclick="$('#bo_vc_w_<?=$list_item['wr_id']?>').toggle(); return false;">답글</a>
-                <? if ($update_href) { ?><a href="<?=$update_href?>">수정</a><? } ?>
-                <? if ($delete_href) { ?><a href="<?=$delete_href?>" onclick="del(this.href); return false;">삭제</a><? } ?>
-            </span>
+    <a href="#" onclick="$('#comment_form_<?=$list_item['wr_id']?>').toggle(); return false;">답글</a>
+    
+    <?php if ($update_href) { ?>
+        <a href="<?php echo $update_href ?>">수정</a>
+    <?php } ?>
+    <?php if ($delete_href) { ?>
+        <a href="<?php echo $delete_href ?>" onclick="del(this.href); return false;">삭제</a>
+    <?php } ?>
+</span>
+
+<div id="comment_form_<?=$list_item['wr_id']?>" style="display:none; margin-top:10px;">
+    <?php include($board_skin_path."/write_comment.php"); ?>
+</div>
         </div>
 
         <? if($image_url) { ?>
