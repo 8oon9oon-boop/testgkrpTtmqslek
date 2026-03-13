@@ -41,7 +41,6 @@ $pa_ca_name = $write['ca_name'] ? $write['ca_name'] : $pa_ca_name;
 
 <?//=print_r2($file['count']);?>
 <section id="bo_w" <?if($board['bo_table_width']>0){?>style="max-width:<?=$board['bo_table_width']?><?=$board['bo_table_width']>100 ? "px":"%"?>;margin:0 auto;"<?}?>>
-	<!-- 게시물 작성/수정 시작 { -->
 	<form name="fwrite" id="fwrite" action="<?php echo $action_url ?>" onsubmit="return fwrite_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
 	<input type="hidden" name="uid" value="<?php echo get_uniqid(); ?>">
 	<input type="hidden" name="w" value="<?php echo $w ?>">
@@ -117,7 +116,7 @@ $pa_ca_name = $write['ca_name'] ? $write['ca_name'] : $pa_ca_name;
         <? if ($option) { ?>&nbsp;<?} ?>
         <input type="checkbox" id="wr_1" name="wr_1" value="1"<?=($write['wr_1']) ? ' checked' : '';?>> <label for="wr_1">스포일러</label>
         &nbsp;
-        <a href="javascript:void(0)" onclick="window.open('<?php echo $board_skin_url ?>/txtggu/index.php','txtggu','width=500, height=800')" class="ui-btn new_win"><i class="fa-solid fa-code"></i></a>
+        <a href="javascript:void(0)" onclick="window.open('<?php echo $board_skin_url ?>/txtggu/index.php','txtggu','width=500, height=800')" class="ui-btn new_win">텍스트 꾸미기</a>
         <a href="javascript:void(0)" onclick="window.open('<?php echo $board_skin_url ?>/emoticon_list.php','txtggu','width=500, height=800')" class="ui-btn new_win">이모티콘</a>  
     </dd>
 	</dl>
@@ -147,7 +146,7 @@ $pa_ca_name = $write['ca_name'] ? $write['ca_name'] : $pa_ca_name;
 	<dl>
 		<dt>
             내용<br>
-            <label id="upload-btn" class="txt-point"><i class="fa-regular fa-image"></i></label>
+            <label id="upload-btn" class="txt-point" style="cursor:pointer; display:inline-block; margin-top:5px; font-weight:bold;">[사진 첨부]</label>
         </dt>
 		<dd id="dropzone">
             <div class="wr_content">
@@ -155,8 +154,8 @@ $pa_ca_name = $write['ca_name'] ? $write['ca_name'] : $pa_ca_name;
             </div>
             <div id="preview">                
             </div>
-            <span class="frm_info"><i class="fa-solid fa-circle-exclamation"></i> 이미지 업로드는 복사+붙여넣기 및 드래그 앤 드롭 가능. 내용 작성 시 [파일1], [파일2] 등으로 작성하면 위치 지정 가능.</span>
-            <span class="frm_info"><i class="fa-solid fa-circle-exclamation"></i> 토글[토글제목]<br>[토글내용] 으로 작성 시 토글 영역으로 만들 수 있습니다.</span>
+            <span class="frm_info">[안내] 이미지 업로드는 복사+붙여넣기 및 드래그 앤 드롭 가능. 내용 작성 시 [파일1], [파일2] 등으로 작성하면 위치 지정 가능.</span><br>
+            <span class="frm_info">[안내] 토글[토글제목]<br>[토글내용] 으로 작성 시 토글 영역으로 만들 수 있습니다.</span>
             <input type="file" id="image-input" name="bf_file[]" multiple accept="image/*" style="display: none;">
         </dd>
 	</dl>
@@ -168,7 +167,7 @@ $pa_ca_name = $write['ca_name'] ? $write['ca_name'] : $pa_ca_name;
             <input type="text" name="wr_4" id="wr_4" value="<?=$write['wr_4'];?>" class="frm_input">
             <input type="text" name="wr_5" id="wr_5" value="<?=$write['wr_5'];?>" class="frm_input">
             <div>
-                <span class="frm_info"><i class="fa-solid fa-circle-exclamation"></i> 첨부파일과 혼용이 가능합니다. [이미지1], [이미지2] 등으로 사용 가능</span>
+                <span class="frm_info">[안내] 첨부파일과 혼용이 가능합니다. [이미지1], [이미지2] 등으로 사용 가능</span>
             </div>
         </dd>
 	</dl>
@@ -194,8 +193,6 @@ $pa_ca_name = $write['ca_name'] ? $write['ca_name'] : $pa_ca_name;
 	</div>
 	</form>
 </section>
-<!-- } 게시물 작성/수정 끝 -->
-
 <? if ($w == 'u') { ?>
 <? include_once($board_skin_path.'/write.script.php'); // 글 작성시 이미지 관련 ?>
 <? } ?>

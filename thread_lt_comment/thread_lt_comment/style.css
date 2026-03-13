@@ -83,7 +83,7 @@ body, table, th, td, input, select, textarea, button { font-family: var(--thread
 .thread_content { line-height: 1.6; font-size: 15px; color: #333; }
 
 /* 이미지 박스 둥글게 */
-.thread_wrap .thread-box .img_box_wrap .img_box { border: 1px rgba(0,0,0,0.05); }
+.thread_wrap .thread-box .img_box_wrap .img_box { border: 1px rgb(255, 79, 163); }
 
 /* 스포일러 / 관리자 버튼 등 */
 .thread_admin a { color: #888 !important; font-size: 13px; text-decoration: none; }
