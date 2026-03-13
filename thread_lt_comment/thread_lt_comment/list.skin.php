@@ -32,10 +32,18 @@ if ($board['bo_use_list_file'] != '1') {
 	</nav>
 	<?php } ?>
     <!-- } 게시판 카테고리 끝 -->
+
 <? if ($write_href) { ?>
-    <div class="thread_btn"><button class="ui-btn point"><i class="fa-solid fa-feather"></i></button></div>    
-    <div class="thread_write" id="thread_write">
-        <? include($board_skin_path.'/write.skin.php'); // 게시글 작성 ?>
+    <div class="thread_btn">
+        <button class="pixel-txt" onclick="$('#thread_write').slideToggle('fast');">새 글 작성</button>
+    </div>    
+    <div class="thread_write" id="thread_write" style="display:none;">
+        <div class="thread-write-box">
+            <div class="write-header pixel-txt">새 글 작성</div>
+            <div class="write-body">
+                <? include($board_skin_path.'/write.skin.php'); ?>
+            </div>
+        </div>
     </div>
 <? } ?>
 
@@ -50,7 +58,6 @@ if ($board['bo_use_list_file'] != '1') {
     <input type="hidden" name="sod" value="<?php echo $sod ?>">
     <input type="hidden" name="page" value="<?php echo $page ?>">
     <input type="hidden" name="sw" value="">
-	<?//@201023 게시판 글 다중체크용 폼 필드 추가?>
 <? } ?>
     
 	<div class="thread_wrap type_<?=$_list_style; ?>">
@@ -95,7 +102,7 @@ if ($board['bo_use_list_file'] != '1') {
                 <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
                 <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
             </span>
-            <?php } //@201023?>
+            <?php } 
             <a href="<?=$list[$i]['href']?>">
             <div class="list_thumb<?=(!$_img_src) ? ' no_img' : ''; ?>">
                 <? if ($_img_src) { ?>
