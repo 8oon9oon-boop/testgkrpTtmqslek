@@ -31,7 +31,7 @@ if ($board['bo_use_list_file'] != '1') {
 
     <? if ($write_href) { ?>
     <div class="thread_btn">
-        <button type="button" class="ui-btn pixel-txt" onclick="$('#thread_write').slideToggle('fast');">새 글 작성</button>
+        <button type="button" class="ui-btn pixel-txt">새 글 작성</button>
     </div>    
     <div class="thread_write" id="thread_write" style="display:none;">
         <div class="thread-write-box">
